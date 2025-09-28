@@ -103,7 +103,8 @@ NxtTrendz/
 
 ## 🌍 Deployment
 
-website Live at: 'https://nxttrendz-70hv.onrender.com/'
+website Live at: https://nxttrendz-70hv.onrender.com/
+
 You can deploy this app on **Render, Netlify, or Vercel**.
 Example (Render):
 

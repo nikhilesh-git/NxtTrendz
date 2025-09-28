@@ -65,8 +65,8 @@ NxtTrendz/
 1. **Clone the repository**
 
    ```bash
-   git clone https://github.com/your-username/nxttrendz.git
-   cd nxttrendz
+   git clone https://github.com/nikhilesh-git/NxtTrendz.git
+   cd NxtTrendz
    ```
 
 2. **Install dependencies**

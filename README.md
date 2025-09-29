@@ -66,7 +66,7 @@ NxtTrendz/
 
    ```bash
    git clone https://github.com/nikhilesh-git/NxtTrendz.git
-   cd NxtTrendz
+   cd nxt-trendz
    ```
 
 2. **Install dependencies**

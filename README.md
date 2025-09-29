@@ -1,8 +1,7 @@
 
-# 🛍️ NxtTrendz – E-Commerce App (React)
+# 🛍️ NxtTrendz – E-Commerce React App
 
-NxtTrendz is a **React-based e-commerce web application** that allows users to **login, browse products, view exclusive Prime deals, add to cart, and logout securely**.
-It uses **JWT authentication**, **protected routes**, and integrates with backend APIs.
+**NxtTrendz** is a **React-based e-commerce web application** that allows users to **login, browse products, view exclusive Prime deals, add products to cart, and logout securely**. It uses **JWT authentication**, **protected routes**, and integrates with backend APIs.
 
 ---
 
@@ -14,8 +13,8 @@ It uses **JWT authentication**, **protected routes**, and integrates with backen
 * 🛍️ **Products Page**
 
   * View all products
-  * Sort by Price (High → Low / Low → High)
-  * Exclusive Prime Deals section
+  * Sort products by Price (High → Low / Low → High)
+  * Exclusive **Prime Deals** section (requires authorized users)
 * 🛒 **Cart Page** with cart preview
 * ❌ **Not Found Page** for invalid routes
 * 🔓 **Logout** functionality with token removal
@@ -93,23 +92,57 @@ NxtTrendz/
 
 ## 🔑 Authentication
 
-* Login API: `https://apis.ccbp.in/login`
-* Products API: `https://apis.ccbp.in/products`
-* Prime Deals API: `https://apis.ccbp.in/prime-deals`
-* JWT Token is stored in **Cookies** (`jwt_token`).
-* Token is cleared on logout.
+* **Login API:** `https://apis.ccbp.in/login`
+* **Products API:** `https://apis.ccbp.in/products`
+* **Prime Deals API:** `https://apis.ccbp.in/prime-deals`
+* **JWT Token:** stored in **Cookies** (`jwt_token`)
+* Token is cleared on **logout**
+
+### ✅ Prime Deals Authorization
+
+* Accessing **Prime Deals** requires a **valid JWT token** of a prime user.
+* If a non-prime user logs in, the Prime Deals section shows a **banner to register for Prime**.
+
+**User Credentials:**
+
+| User Type | Username | Password   |
+| --------- | -------- | ---------- |
+| Non-Prime | raja     | raja@2021  |
+| Prime     | rahul    | rahul@2021 |
 
 ---
 
 ## 🌍 Deployment
 
-website Live at: https://nxttrendz-70hv.onrender.com/
+**Live Demo:** [https://nxttrendz-70hv.onrender.com/](https://nxttrendz-70hv.onrender.com/)
 
 You can deploy this app on **Render, Netlify, or Vercel**.
-Example (Render):
 
-* Connect repo to Render
-* Add `Build Command`: `npm run build`
-* Add `Publish Directory`: `build/`
+**Render Setup Example:**
 
+* Connect your GitHub repo to Render
+* **Build Command:** `npm run build`
+* **Publish Directory:** `build/`
+
+### Important for React Router
+
+To handle client-side routing:
+
+1. Add a `_redirects` file inside `public/`:
+
+```
+/* /index.html 200
+```
+
+2. Commit and push, then redeploy.
+
+**Alternatively:** Use `HashRouter` instead of `BrowserRouter` if you want SPA routing to work without server configuration.
+
+---
+
+## 📝 Notes
+
+* Only logged-in users can access protected routes (`/`, `/products`, `/cart`)
+* Unknown routes redirect to the **Not Found Page**
+* Exclusive Prime Deals require authorization (JWT token for prime users)
 

@@ -1,5 +1,5 @@
 import { BrowserRouter, Routes, Route, Navigate } from 'react-router-dom'
-
+import Cookies from "js-cookie"
 import LoginForm from './components/LoginForm'
 import Home from './components/Home'
 import Products from './components/Products'
@@ -9,6 +9,7 @@ import ProtectedRoute from './components/ProtectedRoute'
 
 import './App.css'
 
+const jwtToken=Cookies.get('jwtToken');
 const App = () => (
   <BrowserRouter>
     <Routes>
@@ -45,7 +46,7 @@ const App = () => (
       <Route path="/not-found" element={<NotFound />} />
 
       {/* Catch-all redirect */}
-      <Route path="*" element={<Navigate to="/not-found" replace />} />
+      <Route path="*" element={jwtToken===undefined?<Navigate to="/login" replace />:<Navigate to="/not-found" replace />} />
     </Routes>
   </BrowserRouter>
 )
